@@ -70,7 +70,6 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             f.write("")
             f.write("            <div class='content'>")
             f.write("            <h1> Logged out ")
-            f.write(info)
             f.write("            </h1>")
             f.write("            <hr> </div></body></html>")
             self.copyfile(f, self.wfile)
