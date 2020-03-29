@@ -88,9 +88,9 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             f.write("<strong>Success:</strong>")
         else:
             f.write("<strong>Failed:</strong>")
-        f.write(info)
         f.write("            </h1>")
         f.write("            </div>")
+        f.write(info)
         f.write("            </body>")
         f.write("            </html>")
         length = f.tell()
