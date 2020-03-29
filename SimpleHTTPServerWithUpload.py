@@ -85,14 +85,12 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         f.write("            <div class='content'>")
         f.write("            <h1>")
         if r:
-            f.write("<strong>Success:</strong>")
+            f.write("<strong>Success: </strong>")
         else:
-            f.write("<strong>Failed:</strong>")
+            f.write("<strong>Failed: </strong>")
         f.write(info)
         f.write("            </h1>")
-        f.write("            </div>")
-        f.write("            </body>")
-        f.write("            </html>")
+        f.write("            <hr> <a href='logout'>Logout</a></div></body></html>")
         length = f.tell()
         f.seek(0)
         self.send_response(200)
