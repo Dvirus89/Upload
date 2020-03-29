@@ -46,7 +46,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         """Serve a GET request."""
         if "logout" in self.path:
-            ##
+            f = StringIO()
             f.write(" <!DOCTYPE html>")
             f.write("            <html>")
             f.write("            <head>")
