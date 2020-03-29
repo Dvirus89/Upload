@@ -72,8 +72,15 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             f.write("            <h1> Logged out ")
             f.write("            </h1>")
             f.write("            <hr> </div></body></html>")
-            self.copyfile(f, self.wfile)
-            f.close()
+            length = f.tell()
+            f.seek(0)
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.send_header("Content-Length", str(length))
+            self.end_headers()
+            if f:
+                self.copyfile(f, self.wfile)
+                f.close()
         else:
             f = self.send_head()
             if f:
