@@ -45,10 +45,41 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
     def do_GET(self):
         """Serve a GET request."""
-        f = self.send_head()
-        if f:
+        if "logout" in self.path:
+            ##
+            f.write(" <!DOCTYPE html>")
+            f.write("            <html>")
+            f.write("            <head>")
+            f.write("            <meta name='viewport' content='width=device-width, initial-scale=1'>")
+            f.write("            <style>")
+            f.write("            body {")
+            f.write("                background: #555;")
+            f.write("            }")
+            f.write("")
+            f.write("            .content {")
+            f.write("                max-width: 500px;")
+            f.write("                margin: auto;")
+            f.write("                background: #63a3ca;")
+            f.write("                padding: 100px;")
+            f.write("                text-align: center;")
+            f.write("")
+            f.write("            }")
+            f.write("            </style>")
+            f.write("            </head>")
+            f.write("            <body>")
+            f.write("")
+            f.write("            <div class='content'>")
+            f.write("            <h1> Logged out ")
+            f.write(info)
+            f.write("            </h1>")
+            f.write("            <hr> </div></body></html>")
             self.copyfile(f, self.wfile)
             f.close()
+        else:
+            f = self.send_head()
+            if f:
+                self.copyfile(f, self.wfile)
+                f.close()
 
     def do_HEAD(self):
         """Serve a HEAD request."""
