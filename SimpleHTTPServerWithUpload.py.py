@@ -232,7 +232,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         f.write("            </head>")
         f.write("            <body>")
         f.write("")
-        f.write("            <div class='content'> <h2> Temporary file upload </h2> <h2>Directory listing for %s</h2>\n" % displaypath)
+        f.write("            <div class='content'> <h2> Temporary file upload </h2> <h1>Directory listing for %s</h1>\n" % displaypath)
         f.write("            </div> <div class='contentdata'>")
         f.write("<form ENCTYPE=\"multipart/form-data\" method=\"post\">")
         f.write("<input name=\"file\" type=\"file\"/>")
