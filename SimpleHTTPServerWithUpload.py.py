@@ -88,9 +88,9 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             f.write("<strong>Success:</strong>")
         else:
             f.write("<strong>Failed:</strong>")
+        f.write(info)
         f.write("            </h1>")
         f.write("            </div>")
-        f.write(info)
         f.write("            </body>")
         f.write("            </html>")
         length = f.tell()
@@ -225,7 +225,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         f.write("            <body>")
         f.write("")
         f.write("            <div class='content'> <h2>Directory listing for %s</h2>\n" % displaypath)
-        f.write("            <h1>")
+        f.write("            </div>")
         f.write("<form ENCTYPE=\"multipart/form-data\" method=\"post\">")
         f.write("<input name=\"file\" type=\"file\"/>")
         f.write("<input type=\"submit\" value=\"upload\"/></form>\n")
@@ -242,8 +242,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 # Note: a link to a directory displays with @ and links with /
             f.write('<li><a href="%s">%s</a>\n'
                     % (urllib.quote(linkname), cgi.escape(displayname)))
-        f.write("            </h1>")
-        f.write("            </div>")
+
         f.write("            </body>")
         f.write("            </html>")
         length = f.tell()
