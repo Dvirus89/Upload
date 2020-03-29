@@ -252,7 +252,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             f.write('<li><a href="%s" style="color: #043755;">%s</a>\n'
                     % (urllib.quote(linkname), cgi.escape(displayname)))
 
-        f.write("            </div></body>")
+        f.write("            </div><hr> <a href="logout">Logout</a></body>")
         f.write("            </html>")
         length = f.tell()
         f.seek(0)
