@@ -137,7 +137,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                     preline = preline[0:-1]
                 out.write(preline)
                 out.close()
-                name  = fn.split('/')[-1]
+                fname  = fn.split('/')[-1]
                 return (True, "File '%s' has been succesfully uploaded!" %fname )
             else:
                 out.write(preline)
