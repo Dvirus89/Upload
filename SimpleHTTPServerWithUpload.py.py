@@ -237,7 +237,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         f.write("<form ENCTYPE=\"multipart/form-data\" method=\"post\">")
         f.write("<input name=\"file\" type=\"file\"/>")
         f.write("<input type=\"submit\" value=\"upload\"/></form>\n")
-        f.write("<hr>\n<ul>\n")
+        f.write('<hr>\n<ul style="background: #63a3ca; color: #10202b;">\n')
         for name in list:
             fullname = os.path.join(path, name)
             displayname = linkname = name
@@ -248,7 +248,7 @@ class SimpleHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             if os.path.islink(fullname):
                 displayname = name + "@"
                 # Note: a link to a directory displays with @ and links with /
-            f.write('<li><a href="%s">%s</a>\n'
+            f.write('<li><a href="%s" style="color: #043755;">%s</a>\n'
                     % (urllib.quote(linkname), cgi.escape(displayname)))
 
         f.write("            </div></body>")
